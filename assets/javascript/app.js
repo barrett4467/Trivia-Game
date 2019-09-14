@@ -70,32 +70,114 @@ function renderButtons(Num) {
     $("#answer1").text(Num.answers[1]);
     $("#answer2").text(Num.answers[2]);
     $("#answer3").text(Num.answers[3]);
-  }
+}
 
 function startGame(){
+    question0();
+}
+
+function storeAnswer(next){
+        $("#answer0").on("click", function () {
+            var guess = $(this).attr("data-value");
+            userGuess.push(guess);
+            console.log(guess);
+            next();
+        })
+        $("#answer1").on("click", function () {
+            var guess = $(this).attr("data-value");
+            userGuess.push(guess);
+            console.log(guess);
+            next();
+        })
+        $("#answer2").on("click", function () {
+            var guess = $(this).attr("data-value");
+            userGuess.push(guess);
+            console.log(guess);
+            next();
+        })
+        $("#answer3").on("click", function () {
+            var guess = $(this).attr("data-value");
+            userGuess.push(guess);
+            console.log(guess);
+            next();
+        })
+
+    }
+
+
+function question0 (){
     $("#questions").html("<h2>" + questions.question0.question);
     $("#possible-answers").html(renderButtons(questions.question0));
+    storeAnswer(question1);
+
+}
+
+
+function question1 (){
+    $("#questions").html("<h2>" + questions.question1.question);
+    $("#possible-answers").html(renderButtons(questions.question1));
+    storeAnswer(question2);
 }
 
 function question2 (){
-    $("#questions").html("<h2>" + questions.question1.question);
-    $("#possible-answers").html(renderButtons(questions.question1));
-    question3();
+    $("#questions").html("<h2>" + questions.question2.question);
+    $("#possible-answers").html(renderButtons(questions.question2));
+    storeAnswer(question3);
 }
 function question3 (){
     $("#possible-answers").on("click", function () {
-        $("#questions").html("<h2>" + questions.question2.question);
-        $("#possible-answers").html(renderButtons(questions.question2));
-        question4();
+        console.log(userGuess);
+        $("#questions").html("<h2>" + questions.question3.question);
+        $("#possible-answers").html(renderButtons(questions.question3));
+        storeAnswer(question4);
     })
 }
 function question4 (){
     $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question4.question);
         $("#possible-answers").html(renderButtons(questions.question4));
+        storeAnswer(question5);
+    })
+}
+function question5 (){
+    $("#possible-answers").on("click", function () {
+        $("#questions").html("<h2>" + questions.question5.question);
+        $("#possible-answers").html(renderButtons(questions.question5));
+        storeAnswer(question6);
+    })
+}
+function question6 (){
+    $("#possible-answers").on("click", function () {
+        $("#questions").html("<h2>" + questions.question6.question);
+        $("#possible-answers").html(renderButtons(questions.question6));
+        storeAnswer(question7);
+    })
+}
+function question7 (){
+    $("#possible-answers").on("click", function () {
+        $("#questions").html("<h2>" + questions.question7.question);
+        $("#possible-answers").html(renderButtons(questions.question7));
+        storeAnswer(question8);
+    })
+}
+function question8 (){
+    $("#possible-answers").on("click", function () {
+        $("#questions").html("<h2>" + questions.question8.question);
+        $("#possible-answers").html(renderButtons(questions.question8));
+        storeAnswer(question9);
+    })
+}
+function question9 (){
+    $("#possible-answers").on("click", function () {
+        $("#questions").html("<h2>" + questions.question9.question);
+        $("#possible-answers").html(renderButtons(questions.question9));
+        endGame(); 
     })
 }
 
+function endGame(){
+    alert("you Did it");
+}
 $("#possible-answers").on("click", function (){
     question2();
 })
