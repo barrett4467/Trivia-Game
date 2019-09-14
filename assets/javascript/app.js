@@ -129,7 +129,9 @@ function question3 (){
         console.log(userGuess);
         $("#questions").html("<h2>" + questions.question3.question);
         $("#possible-answers").html(renderButtons(questions.question3));
-        storeAnswer(question4);
+        // storeAnswer(question4);
+        storeAnswer(question3);
+        endGame()
     })
 }
 function question4 (){
@@ -171,17 +173,43 @@ function question9 (){
     $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question9.question);
         $("#possible-answers").html(renderButtons(questions.question9));
-        endGame(); 
+        storeAnswer(endGame);
     })
 }
 
 function endGame(){
-    alert("you Did it");
+        if (userGuess[0] === "0"){
+            $("#results").append("<p>" + questions.question0.answers[0] + "</p>");
+        } else if (userGuess[0] === "1"){
+            alert("checker checks")
+            $("#results").append("<p>" + questions.question0.answers[0] + "</p>");
+        } else if (userGuess[0] === "2"){
+            alert("checker checks")
+            $("#results").append("<p>" + questions.question0.answers[0] + "</p>");
+        } else if (userGuess[0] === "3"){
+            alert("checker checks")
+            $("#results").append("<p>" + questions.question0.answers[0] + "</p>");
+        } else{
+            alert("NOOOOOO")
+        }
+    
+
+    console.log(questions.question0.answers[1]);
+    console.log("User Guess: " + userGuess[0]);
+
+    // var result0 = "<p> Your Answer: " + checker0() + "</p>";
+    // var result1 = "<p> Your Answer: " + userGuess[1] + "</p>";
+    // var result2 = "<p> Your Answer: " + userGuess[3] + "</p>";
+    // var result3 = "<p> Your Answer: " + userGuess[4] + "</p>";
+    // var result4 = "<p> Your Answer: " + userGuess[5] + "</p>";
+    // var result5 = "<p> Your Answer: " + userGuess[6] + "</p>";
+    // var result6 = "<p> Your Answer: " + userGuess[7] + "</p>";
+    // var result7 = "<p> Your Answer: " + userGuess[8] + "</p>";
+    // var result8 = "<p> Your Answer: " + userGuess[9] + "</p>";
+    // var result9 = "<p> Your Answer: " + userGuess[10] + "</p>";
+
 }
-$("#possible-answers").on("click", function (){
-    question2();
-})
+startGame()
 
 
-
-startGame();
+$("#results").append("ssskjafdhasfdlsaf");
