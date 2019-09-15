@@ -12,7 +12,7 @@ var questions = {
     }, 
     question1:{
     question: "Harry, Ron, and Hermione help save the Sorcerer's Stone from being stolen. How old was its co-creator, Nicholas Flamel, when he decided to destroy it?", 
-    answers: ["665", "982", "105", "574"]
+    answers: ["574", "982", "105", "665"]
     },
     question2:{
     question: "Snape grilled Harry about this on his first day in Potions. Monkshood and wolfsbane are the same plant, also known as what?",
@@ -24,7 +24,7 @@ var questions = {
     },
     question4:{
     question: "In The Sorcerer’s Stone, Harry and his friends are awarded last-minute House Points, putting Gryffindor ahead of Slytherin by just 10 points. What was the final tally?",
-    answers: ["482 to 472", "275 to 265", "303 to 293", "450 to 440"]
+    answers: ["303 to 293", "275 to 265", "482 to 472", "450 to 440"]
     },
     question5:{
     question: "Ever the eccentric, Dumbledore has a scar above his left knee that is a perfect map of what?",
@@ -32,21 +32,22 @@ var questions = {
     },
     question6:{
     question: "What does Grunnings, the company Vernon Dursley works for, produce?",
-    answers: ["Drills", "Paper", "Tools", "Shipping Containers"]
+    answers: ["Paper", "Drills", "Tools", "Shipping Containers"]
     },
     question7:{
     question: "For Harry's 17th birthday, what colour did Hermione turn the leaves of the Weasley’s crabapple tree?",
-    answers: ["Gold", "Bright Orange", "Red", "Blue"]
-    },
-    question8:{
+    answers: ["Blue", "Bright Orange", "Red", "Gold"]
+},
+question8:{
     question: "Harry is known for his talents in Quidditch. What is the max speed for a Firebolt broomstick?",
     answers: ["45 miles per hour", "65 miles per hour", "150 miles per hour", "200 miles per hour"]
-    },
-    question9:{
+},
+question9:{
     question: "Harry first took the Knight Bus in The Prisoner of Azkaban. How much does a ticket cost if it includes hot chocolate?",
     answers: ["14 Sickles", "1 Galleon", "17 Knuts", "7 Sickles and 3 Knuts"]
-    }
 }
+}
+
 
 var wins = 0;
 var losses = 0;
@@ -63,7 +64,7 @@ function renderButtons(Num) {
         buttons.addClass("buttons");
         buttons.attr("id", "answer" + (i));
         buttons.attr("data-value", (i));
-
+        
         $("#possible-answers").append(buttons);
     }
     $("#answer0").text(Num.answers[0]);
@@ -74,148 +75,199 @@ function renderButtons(Num) {
 
 function startGame(){
     question0();
+    
 }
 
 function storeAnswer(next){
-        $("#answer0").on("click", function () {
-            var guess = $(this).text();
-            userGuess.push(guess);
-            console.log(guess);
-            next();
-        })
-        $("#answer1").on("click", function () {
-            var guess = $(this).text();
-            userGuess.push(guess);
-            console.log(guess);
-            next();
-        })
-        $("#answer2").on("click", function () {
-            var guess = $(this).text();
-            userGuess.push(guess);
-            console.log(guess);
-            next();
-        })
-        $("#answer3").on("click", function () {
-            var guess = $(this).text();
-            userGuess.push(guess);
-            console.log(guess);
-            next();
-        })
-
-    }
+    $("#answer0").on("click", function () {
+        var guess = $(this).text();
+        userGuess.push(guess);
+        console.log(guess);
+        next();
+    })
+    $("#answer1").on("click", function () {
+        var guess = $(this).text();
+        userGuess.push(guess);
+        console.log(guess);
+        next();
+    })
+    $("#answer2").on("click", function () {
+        var guess = $(this).text();
+        userGuess.push(guess);
+        console.log(guess);
+        next();
+    })
+    $("#answer3").on("click", function () {
+        var guess = $(this).text();
+        userGuess.push(guess);
+        console.log(guess);
+        next();
+    })
+    
+}
 
 
 function question0 (){
     $("#questions").html("<h2>" + questions.question0.question);
     $("#possible-answers").html(renderButtons(questions.question0));
-    storeAnswer(question1);
-
+    switchScreens(question1);
 }
+storeAnswer(question1);
 
 
 function question1 (){
     $("#questions").html("<h2>" + questions.question1.question);
     $("#possible-answers").html(renderButtons(questions.question1));
+    switchScreens(question2);
     storeAnswer(question2);
 }
+timeUp(question2);
 
 function question2 (){
     $("#questions").html("<h2>" + questions.question2.question);
     $("#possible-answers").html(renderButtons(questions.question2));
+    switchScreens(question3);
     storeAnswer(question3);
 }
+timeUp(question3);
 function question3 (){
     $("#possible-answers").on("click", function () {
         console.log(userGuess);
         $("#questions").html("<h2>" + questions.question3.question);
         $("#possible-answers").html(renderButtons(questions.question3));
+        switchScreens(question4);
         storeAnswer(question4);
-       
     })
+    timeUp(question4);
 }
 function question4 (){
     $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question4.question);
         $("#possible-answers").html(renderButtons(questions.question4));
+        switchScreens(question5);
         storeAnswer(question5);
     })
+    timeUp(question5);
 }
 function question5 (){
     $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question5.question);
         $("#possible-answers").html(renderButtons(questions.question5));
+        switchScreens(question6);
         storeAnswer(question6);
     })
+    timeUp(question6);
 }
 function question6 (){
     $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question6.question);
         $("#possible-answers").html(renderButtons(questions.question6));
+        switchScreens(question7);
         storeAnswer(question7);
     })
+    timeUp(question7);
 }
 function question7 (){
     $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question7.question);
         $("#possible-answers").html(renderButtons(questions.question7));
+        switchScreens(question8);
         storeAnswer(question8);
     })
+    timeUp(question8);
 }
 function question8 (){
     $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question8.question);
         $("#possible-answers").html(renderButtons(questions.question8));
+        switchScreens(question9);
         storeAnswer(question9);
+        timeUp(question9);
     })
 }
 function question9 (){
     $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question9.question);
         $("#possible-answers").html(renderButtons(questions.question9));
+        switchScreens(endGame);
         storeAnswer(endGame);
+        timeUp(endGame);
     })
 }
+var intervalId;
+var number = 10; 
+
+function run() {
+    stop();
+    intervalId = setInterval(decrement, 1000);
+  }
+  function stop() {
+
+    clearInterval(intervalId);
+  }
+  
+  function decrement() {
+
+    number--;
+
+    $("#show-number").html("<h2>" + number + "</h2>");
+    timeUp(question1)
+
+  }
+  function timeUp (next){
+    if (number === 0) {
+    stop();
+    next();
+    }
+}
+    function switchScreens (next){
+        stop();
+        next();
+    }
+
+  run();
+
 
 function endGame(){
     function userAnswer (i){
         $("#results").append("<p> Your Answer: "   + userGuess[i]+ "</p>");
     }
     function correctAnswer0 (i){
-        $("#results").append("<p> Correct Answer: "   + questions.question0.answers[i]+ "</p>");
+        $("#results").append("<p> Correct Answer: "   + questions.question0.answers[0]+ "</p>");
     }
     function correctAnswer1 (i){
-        $("#results").append("<p> Correct Answer: "   + questions.question1.answers[i]+ "</p>");
+        $("#results").append("<p> Correct Answer: "   + questions.question1.answers[3]+ "</p>");
     }
 
     function correctAnswer2 (i){
-        $("#results").append("<p> Correct Answer: "   + questions.question2.answers[i]+ "</p>");
+        $("#results").append("<p> Correct Answer: "   + questions.question2.answers[0]+ "</p>");
     }
 
     function correctAnswer3 (i){
-        $("#results").append("<p> Correct Answer: "   + questions.question3.answers[i]+ "</p>");
+        $("#results").append("<p> Correct Answer: "   + questions.question3.answers[1]+ "</p>");
     }
 
     function correctAnswer4 (i){
-        $("#results").append("<p> Correct Answer: "   + questions.question4.answers[i]+ "</p>");
+        $("#results").append("<p> Correct Answer: "   + questions.question4.answers[2]+ "</p>");
     }
 
     function correctAnswer5 (i){
-        $("#results").append("<p> Correct Answer: "   + questions.question5.answers[i]+ "</p>");
+        $("#results").append("<p> Correct Answer: "   + questions.question5.answers[0]+ "</p>");
     }
 
     function correctAnswer6 (i){
-        $("#results").append("<p> Correct Answer: "   + questions.question6.answers[i]+ "</p>");
+        $("#results").append("<p> Correct Answer: "   + questions.question6.answers[1]+ "</p>");
     }
 
     function correctAnswer7 (i){
-        $("#results").append("<p> Correct Answer: "   + questions.question7.answers[i]+ "</p>");
+        $("#results").append("<p> Correct Answer: "   + questions.question7.answers[3]+ "</p>");
     }
 
     function correctAnswer8 (i){
-        $("#results").append("<p> Correct Answer: "   + questions.question8.answers[i]+ "</p>");
+        $("#results").append("<p> Correct Answer: "   + questions.question8.answers[2]+ "</p>");
     }
     function correctAnswer9 (i){
-        $("#results").append("<p> Correct Answer: "   + questions.question9.answers[i]+ "</p>");
+        $("#results").append("<p> Correct Answer: "   + questions.question9.answers[0]+ "</p>");
     }
 
 
@@ -243,22 +295,12 @@ function endGame(){
     //need to set countdown timers 
 
 
-
-    // $("#results").append("<p> Your Answer: "   + userGuess[0]+ "</p>");
-    // $("#results").append("<p> Your Answer: "   + userGuess[1]+ "</p>");
-    // $("#results").append("<p> Your Answer: "   + userGuess[2]+ "</p>");
-    // $("#results").append("<p> Your Answer: "   + userGuess[3]+ "</p>");
-    // $("#results").append("<p> Your Answer: "   + userGuess[4]+ "</p>");
-    // $("#results").append("<p> Your Answer: "   + userGuess[5]+ "</p>");
-    // $("#results").append("<p> Your Answer: "   + userGuess[6]+ "</p>");
-    // $("#results").append("<p> Your Answer: "   + userGuess[7]+ "</p>");
-    // $("#results").append("<p> Your Answer: "   + userGuess[8]+ "</p>");
-    // $("#results").append("<p> Your Answer: "   + userGuess[9]+ "</p>");
-
-
     console.log(questions.question0.answers[1]);
     console.log("User Guess: " + userGuess[0]);
 
 
 }
 startGame();
+run();
+
+console.log(decrement())
