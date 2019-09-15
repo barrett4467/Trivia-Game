@@ -78,25 +78,25 @@ function startGame(){
 
 function storeAnswer(next){
         $("#answer0").on("click", function () {
-            var guess = $(this).attr("data-value");
+            var guess = $(this).text();
             userGuess.push(guess);
             console.log(guess);
             next();
         })
         $("#answer1").on("click", function () {
-            var guess = $(this).attr("data-value");
+            var guess = $(this).text();
             userGuess.push(guess);
             console.log(guess);
             next();
         })
         $("#answer2").on("click", function () {
-            var guess = $(this).attr("data-value");
+            var guess = $(this).text();
             userGuess.push(guess);
             console.log(guess);
             next();
         })
         $("#answer3").on("click", function () {
-            var guess = $(this).attr("data-value");
+            var guess = $(this).text();
             userGuess.push(guess);
             console.log(guess);
             next();
@@ -129,9 +129,8 @@ function question3 (){
         console.log(userGuess);
         $("#questions").html("<h2>" + questions.question3.question);
         $("#possible-answers").html(renderButtons(questions.question3));
-        // storeAnswer(question4);
-        storeAnswer(question3);
-        endGame()
+        storeAnswer(question4);
+       
     })
 }
 function question4 (){
@@ -178,38 +177,88 @@ function question9 (){
 }
 
 function endGame(){
-        if (userGuess[0] === "0"){
-            $("#results").append("<p>" + questions.question0.answers[0] + "</p>");
-        } else if (userGuess[0] === "1"){
-            alert("checker checks")
-            $("#results").append("<p>" + questions.question0.answers[0] + "</p>");
-        } else if (userGuess[0] === "2"){
-            alert("checker checks")
-            $("#results").append("<p>" + questions.question0.answers[0] + "</p>");
-        } else if (userGuess[0] === "3"){
-            alert("checker checks")
-            $("#results").append("<p>" + questions.question0.answers[0] + "</p>");
-        } else{
-            alert("NOOOOOO")
-        }
-    
+    function userAnswer (i){
+        $("#results").append("<p> Your Answer: "   + userGuess[i]+ "</p>");
+    }
+    function correctAnswer0 (i){
+        $("#results").append("<p> Correct Answer: "   + questions.question0.answers[i]+ "</p>");
+    }
+    function correctAnswer1 (i){
+        $("#results").append("<p> Correct Answer: "   + questions.question1.answers[i]+ "</p>");
+    }
+
+    function correctAnswer2 (i){
+        $("#results").append("<p> Correct Answer: "   + questions.question2.answers[i]+ "</p>");
+    }
+
+    function correctAnswer3 (i){
+        $("#results").append("<p> Correct Answer: "   + questions.question3.answers[i]+ "</p>");
+    }
+
+    function correctAnswer4 (i){
+        $("#results").append("<p> Correct Answer: "   + questions.question4.answers[i]+ "</p>");
+    }
+
+    function correctAnswer5 (i){
+        $("#results").append("<p> Correct Answer: "   + questions.question5.answers[i]+ "</p>");
+    }
+
+    function correctAnswer6 (i){
+        $("#results").append("<p> Correct Answer: "   + questions.question6.answers[i]+ "</p>");
+    }
+
+    function correctAnswer7 (i){
+        $("#results").append("<p> Correct Answer: "   + questions.question7.answers[i]+ "</p>");
+    }
+
+    function correctAnswer8 (i){
+        $("#results").append("<p> Correct Answer: "   + questions.question8.answers[i]+ "</p>");
+    }
+    function correctAnswer9 (i){
+        $("#results").append("<p> Correct Answer: "   + questions.question9.answers[i]+ "</p>");
+    }
+
+
+
+    userAnswer(0);
+    correctAnswer0();
+    userAnswer(1);
+    correctAnswer1();
+    userAnswer(2);
+    correctAnswer2();
+    userAnswer(3);
+    correctAnswer3();
+    userAnswer(4);
+    correctAnswer4();
+    userAnswer(5);
+    correctAnswer5();
+    userAnswer(6);
+    correctAnswer6();
+    userAnswer(7);
+    correctAnswer7();
+    userAnswer(8);
+    correctAnswer8();
+    userAnswer(9);
+    correctAnswer9(); //want these to show as your answer correct on the same line 
+    //need to set countdown timers 
+
+
+
+    // $("#results").append("<p> Your Answer: "   + userGuess[0]+ "</p>");
+    // $("#results").append("<p> Your Answer: "   + userGuess[1]+ "</p>");
+    // $("#results").append("<p> Your Answer: "   + userGuess[2]+ "</p>");
+    // $("#results").append("<p> Your Answer: "   + userGuess[3]+ "</p>");
+    // $("#results").append("<p> Your Answer: "   + userGuess[4]+ "</p>");
+    // $("#results").append("<p> Your Answer: "   + userGuess[5]+ "</p>");
+    // $("#results").append("<p> Your Answer: "   + userGuess[6]+ "</p>");
+    // $("#results").append("<p> Your Answer: "   + userGuess[7]+ "</p>");
+    // $("#results").append("<p> Your Answer: "   + userGuess[8]+ "</p>");
+    // $("#results").append("<p> Your Answer: "   + userGuess[9]+ "</p>");
+
 
     console.log(questions.question0.answers[1]);
     console.log("User Guess: " + userGuess[0]);
 
-    // var result0 = "<p> Your Answer: " + checker0() + "</p>";
-    // var result1 = "<p> Your Answer: " + userGuess[1] + "</p>";
-    // var result2 = "<p> Your Answer: " + userGuess[3] + "</p>";
-    // var result3 = "<p> Your Answer: " + userGuess[4] + "</p>";
-    // var result4 = "<p> Your Answer: " + userGuess[5] + "</p>";
-    // var result5 = "<p> Your Answer: " + userGuess[6] + "</p>";
-    // var result6 = "<p> Your Answer: " + userGuess[7] + "</p>";
-    // var result7 = "<p> Your Answer: " + userGuess[8] + "</p>";
-    // var result8 = "<p> Your Answer: " + userGuess[9] + "</p>";
-    // var result9 = "<p> Your Answer: " + userGuess[10] + "</p>";
 
 }
-startGame()
-
-
-$("#results").append("ssskjafdhasfdlsaf");
+startGame();
