@@ -1,0 +1,17 @@
+#button1, .button, button {
+    background-color: #b0344e;
+    color: #ffffff;
+}
+
+h1 {
+    background-color: #bb8e6d;
+    padding:10px;
+    border-radius: 10px;
+}
+
+#container {
+    background-color: #bdb7b7;
+}
+p {
+    font-size: 20px; 
+}

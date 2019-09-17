@@ -61,7 +61,7 @@ function renderButtons(Num) {
     // Loop through the array of answers, then generate buttons for each
     for (var i = 0; i < 4; i++){
         var buttons = $("<button>");
-        buttons.addClass("buttons");
+        buttons.addClass("button1");
         buttons.attr("id", "answer" + (i));
         buttons.attr("data-value", (i));
         
