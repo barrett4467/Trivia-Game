@@ -129,8 +129,6 @@ function question1 (){
         run1();
         // reset(question2);
 }
-// timeUp(question2);
-
 function question2 (){
     $("#questions").html("<h2>" + questions.question2.question);
     $("#possible-answers").html(renderButtons(questions.question2));
@@ -177,7 +175,6 @@ function question9 (){
         $("#questions").html("<h2>" + questions.question9.question);
         $("#possible-answers").html(renderButtons(questions.question9));
         storeAnswer(endGame);
-        run9();
 }
 var intervalId;
 var number = 10; 
@@ -354,9 +351,11 @@ function resetTimer (){
 
 
 function endGame(){
+    stop();
     $("#possible-answers").html("");
     $("#questions").html("");
     $("#show-number").html("");
+
     function userAnswer (i){
         $("#results").append("<p> Your Answer: "   + userGuess[i]+ "</p>");
     }
@@ -421,7 +420,7 @@ function endGame(){
     userAnswer(9);
     correctAnswer9(); //want these to show as your answer correct on the same line 
     //need to set countdown timers 
-
+ 
 
     console.log(questions.question0.answers[1]);
     console.log("User Guess: " + userGuess[0]);
