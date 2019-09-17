@@ -74,8 +74,13 @@ function renderButtons(Num) {
 }
 
 function startGame(){
-    question0();
     
+    $("#directions").html("<h2> Test your Harry Potter knowledge. Click Start to begin!</h2>");
+    $("#directions").append("<button id='start'>Start</button>");
+    $("#start").on("click", function() {
+        $("#directions").html("");
+        question0();
+    })
 }
 
 function storeAnswer(next){
@@ -110,60 +115,61 @@ function storeAnswer(next){
 function question0 (){
     $("#questions").html("<h2>" + questions.question0.question);
     $("#possible-answers").html(renderButtons(questions.question0));
-    switchScreens(question1);
+    console.log(userGuess);
+    storeAnswer(question1);
+    run();
 }
-storeAnswer(question1);
 
 
 function question1 (){
     $("#questions").html("<h2>" + questions.question1.question);
     $("#possible-answers").html(renderButtons(questions.question1));
-    switchScreens(question2);
     storeAnswer(question2);
+    run();
 }
-timeUp(question2);
+// timeUp(question2);
 
 function question2 (){
     $("#questions").html("<h2>" + questions.question2.question);
     $("#possible-answers").html(renderButtons(questions.question2));
-    switchScreens(question3);
     storeAnswer(question3);
+    run();
 }
-timeUp(question3);
+// timeUp(question3);
 function question3 (){
     $("#possible-answers").on("click", function () {
         console.log(userGuess);
         $("#questions").html("<h2>" + questions.question3.question);
         $("#possible-answers").html(renderButtons(questions.question3));
-        switchScreens(question4);
         storeAnswer(question4);
+        run();
     })
-    timeUp(question4);
+    // timeUp(question4);
 }
 function question4 (){
     $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question4.question);
         $("#possible-answers").html(renderButtons(questions.question4));
-        switchScreens(question5);
         storeAnswer(question5);
+        run();
     })
-    timeUp(question5);
+    // timeUp(question5);
 }
 function question5 (){
     $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question5.question);
         $("#possible-answers").html(renderButtons(questions.question5));
-        switchScreens(question6);
         storeAnswer(question6);
+        run();
     })
-    timeUp(question6);
+    // timeUp(question6);
 }
 function question6 (){
     $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question6.question);
         $("#possible-answers").html(renderButtons(questions.question6));
-        switchScreens(question7);
         storeAnswer(question7);
+        run();
     })
     timeUp(question7);
 }
@@ -171,8 +177,8 @@ function question7 (){
     $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question7.question);
         $("#possible-answers").html(renderButtons(questions.question7));
-        switchScreens(question8);
         storeAnswer(question8);
+        run();
     })
     timeUp(question8);
 }
@@ -180,7 +186,6 @@ function question8 (){
     $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question8.question);
         $("#possible-answers").html(renderButtons(questions.question8));
-        switchScreens(question9);
         storeAnswer(question9);
         timeUp(question9);
     })
@@ -189,7 +194,6 @@ function question9 (){
     $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question9.question);
         $("#possible-answers").html(renderButtons(questions.question9));
-        switchScreens(endGame);
         storeAnswer(endGame);
         timeUp(endGame);
     })
@@ -200,32 +204,27 @@ var number = 10;
 function run() {
     stop();
     intervalId = setInterval(decrement, 1000);
-  }
-  function stop() {
-
+}
+function stop() {
     clearInterval(intervalId);
-  }
-  
-  function decrement() {
+    
+}
 
+function decrement() {
     number--;
-
     $("#show-number").html("<h2>" + number + "</h2>");
-    timeUp(question1)
-
+    if (number === 0) {
+        stop();
+        number = 10;
+        }
   }
   function timeUp (next){
-    if (number === 0) {
-    stop();
-    next();
-    }
-}
-    function switchScreens (next){
-        stop();
-        next();
-    }
 
-  run();
+}
+
+function resetTimer (){
+    number = 10;
+}
 
 
 function endGame(){
@@ -301,6 +300,4 @@ function endGame(){
 
 }
 startGame();
-run();
 
-console.log(decrement())
