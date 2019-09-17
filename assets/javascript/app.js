@@ -117,15 +117,17 @@ function question0 (){
     $("#possible-answers").html(renderButtons(questions.question0));
     console.log(userGuess);
     storeAnswer(question1);
-    run();
+    run0();
+
 }
 
 
 function question1 (){
-    $("#questions").html("<h2>" + questions.question1.question);
-    $("#possible-answers").html(renderButtons(questions.question1));
-    storeAnswer(question2);
-    run();
+        $("#questions").html("<h2>" + questions.question1.question);
+        $("#possible-answers").html(renderButtons(questions.question1));
+        storeAnswer(question2);
+        run1();
+        // reset(question2);
 }
 // timeUp(question2);
 
@@ -133,101 +135,228 @@ function question2 (){
     $("#questions").html("<h2>" + questions.question2.question);
     $("#possible-answers").html(renderButtons(questions.question2));
     storeAnswer(question3);
-    run();
+    run2();
 }
-// timeUp(question3);
 function question3 (){
-    $("#possible-answers").on("click", function () {
-        console.log(userGuess);
         $("#questions").html("<h2>" + questions.question3.question);
         $("#possible-answers").html(renderButtons(questions.question3));
         storeAnswer(question4);
-        run();
-    })
-    // timeUp(question4);
+        run3();
 }
 function question4 (){
-    $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question4.question);
         $("#possible-answers").html(renderButtons(questions.question4));
         storeAnswer(question5);
-        run();
-    })
-    // timeUp(question5);
+        run4();
 }
 function question5 (){
-    $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question5.question);
         $("#possible-answers").html(renderButtons(questions.question5));
         storeAnswer(question6);
-        run();
-    })
-    // timeUp(question6);
+        run5();
 }
 function question6 (){
-    $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question6.question);
         $("#possible-answers").html(renderButtons(questions.question6));
         storeAnswer(question7);
-        run();
-    })
-    timeUp(question7);
+        run6();
 }
 function question7 (){
-    $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question7.question);
         $("#possible-answers").html(renderButtons(questions.question7));
         storeAnswer(question8);
-        run();
-    })
-    timeUp(question8);
+        run7();    
 }
 function question8 (){
-    $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question8.question);
         $("#possible-answers").html(renderButtons(questions.question8));
         storeAnswer(question9);
-        timeUp(question9);
-    })
+        run8();
 }
 function question9 (){
-    $("#possible-answers").on("click", function () {
         $("#questions").html("<h2>" + questions.question9.question);
         $("#possible-answers").html(renderButtons(questions.question9));
         storeAnswer(endGame);
-        timeUp(endGame);
-    })
+        run9();
 }
 var intervalId;
 var number = 10; 
+var isRunning = true;
 
-function run() {
+function run0() {
+    number = 10;
+    isRunning = true;
     stop();
-    intervalId = setInterval(decrement, 1000);
+    intervalId = setInterval(decrement0, 1000);
 }
+function run1() {
+    number = 10;
+    isRunning = true;
+    stop();
+    intervalId = setInterval(decrement1, 1000);
+}
+function run2() {
+    number = 10;
+    isRunning = true;
+    stop();
+    intervalId = setInterval(decrement2, 1000);
+}
+function run3() {
+    number = 10;
+    isRunning = true;
+    stop();
+    intervalId = setInterval(decrement3, 1000);
+}
+function run4() {
+    number = 10;
+    isRunning = true;
+    stop();
+    intervalId = setInterval(decrement4, 1000);
+}
+function run5() {
+    number = 10;
+    isRunning = true;
+    stop();
+    intervalId = setInterval(decrement5, 1000);
+}
+function run6() {
+    number = 10;
+    isRunning = true;
+    stop();
+    intervalId = setInterval(decrement6, 1000);
+}
+function run7() {
+    number = 10;
+    isRunning = true;
+    stop();
+    intervalId = setInterval(decrement7, 1000);
+}
+function run8() {
+    number = 10;
+    isRunning = true;
+    stop();
+    intervalId = setInterval(decrement8, 1000);
+}
+function run9() {
+    number = 10;
+    isRunning = true;
+    stop();
+    intervalId = setInterval(decrement9, 1000);
+}
+
 function stop() {
+    isRunning = false;
     clearInterval(intervalId);
     
 }
 
-function decrement() {
+function decrement0() {
+        number--;
+        $("#show-number").html("<h2>" + number + "</h2>");
+        if (number === 0) {
+            stop();
+            number = 10;
+            question1();
+        }
+  }
+  function decrement1() {
     number--;
     $("#show-number").html("<h2>" + number + "</h2>");
     if (number === 0) {
         stop();
         number = 10;
-        }
-  }
-  function timeUp (next){
-
+        question2();
+    }
+}
+function decrement2() {
+    number--;
+    $("#show-number").html("<h2>" + number + "</h2>");
+    if (number === 0) {
+        stop();
+        number = 10;
+        question3();
+    }
+}
+function decrement3() {
+    number--;
+    $("#show-number").html("<h2>" + number + "</h2>");
+    if (number === 0) {
+        stop();
+        number = 10;
+        question4();
+    }
+}
+function decrement4() {
+    number--;
+    $("#show-number").html("<h2>" + number + "</h2>");
+    if (number === 0) {
+        stop();
+        number = 10;
+        question5();
+    }
+}
+function decrement5() {
+    number--;
+    $("#show-number").html("<h2>" + number + "</h2>");
+    if (number === 0) {
+        stop();
+        number = 10;
+        question6();
+    }
+}
+function decrement6() {
+    number--;
+    $("#show-number").html("<h2>" + number + "</h2>");
+    if (number === 0) {
+        stop();
+        number = 10;
+        question7();
+    }
+}
+function decrement7() {
+    number--;
+    $("#show-number").html("<h2>" + number + "</h2>");
+    if (number === 0) {
+        stop();
+        number = 10;
+        question8();
+    }
+}
+function decrement8() {
+    number--;
+    $("#show-number").html("<h2>" + number + "</h2>");
+    if (number === 0) {
+        stop();
+        number = 10;
+        question9();
+    }
+}
+function decrement9() {
+    number--;
+    $("#show-number").html("<h2>" + number + "</h2>");
+    if (number === 0) {
+        stop();
+        number = 10;
+        endGame();
+    }
 }
 
+
+function reset (next){
+}
+
+
 function resetTimer (){
-    number = 10;
+    if (number===0){
+        alert("yayyyy");
+    }
 }
 
 
 function endGame(){
+    $("#possible-answers").html("");
+    $("#questions").html("");
+    $("#show-number").html("");
     function userAnswer (i){
         $("#results").append("<p> Your Answer: "   + userGuess[i]+ "</p>");
     }
@@ -299,5 +428,10 @@ function endGame(){
 
 
 }
+
+
+
+
+
 startGame();
 
